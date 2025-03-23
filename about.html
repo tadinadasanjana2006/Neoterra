@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - NeoTerra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+            perspective: 1px;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #f5f5f5;
+            z-index: -2;
+            transition: transform 0.3s ease-out;
+            opacity: 1;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(230, 239, 233, 0.4);
+            z-index: -1;
+            backdrop-filter: blur(1px);
+            transition: all 0.3s ease-out;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .brand-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #27ae60;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+
+
+        .brand-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #27ae60;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .about-section {
+            padding: 120px 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mission-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.0rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.0rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+            border: 3px solid #27ae60;
+        }
+
+        .impact-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .metric-number {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 100px 1rem 1rem;
+            }
+        }
+
+        nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #27ae60;
+        }
+
+        .other-ways {
+            background: #000;
+            color: #fff;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .other-ways h2 {
+            color: #fff;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .other-ways p {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .parallax-section {
+            transform-style: preserve-3d;
+            transform: translateZ(-1px) scale(2);
+            z-index: -1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100vh;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-member.reveal,
+        .metric-card.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const parallaxBg = document.querySelector('.parallax-bg');
+            const overlay = document.querySelector('.overlay');
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                if (parallaxBg && overlay) {
+                    parallaxBg.style.transform = `translateZ(-2px) scale(3)`;
+                    const opacity = Math.min(0.4 + (scrolled * 0.0001), 0.6);
+                    overlay.style.background = `rgba(230, 239, 233, ${opacity})`;
+                }
+            });
+
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.mission-box, .team-member, .metric-card').forEach((el) => {
+                observer.observe(el);
+            });
+
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxSection = document.querySelector('.parallax-section');
+                if (parallaxSection) {
+                    parallaxSection.style.transform = `translateZ(-1px) scale(2) translateY(${scrolled * 0.5}px)`;
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="parallax-bg"></div>
+    <div class="overlay"></div>
+    <header>
+        <a href="index.html" class="brand-text">NeoTerra</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main class="about-section">
+        <div class="mission-box">
+            <h1>About NeoTerra</h1>
+            <p>NeoTerra is a pioneering platform that connects waste collectors, recycling units, and industries to create a sustainable ecosystem for waste management. Our mission is to transform waste into valuable resources while promoting environmental consciousness and economic growth.</p>
+        </div>
+
+        <div class="mission-box">
+            <h2>Our Vision</h2>
+            <p>We envision a world where waste is no longer a burden but an opportunity. Through innovative technology and collaboration, we're building a future where every piece of waste finds its way to proper recycling and reuse, contributing to a cleaner, greener planet.</p>
+        </div>
+
+        <div class="impact-metrics">
+            <div class="metric-card">
+                <div class="metric-number">50K+</div>
+                <p>Waste Collectors Registered</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">100+</div>
+                <p>Recycling Units</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">500+</div>
+                <p>Industries Served</p>
+            </div>
+        </div>
+
+        <div class="mission-box">
+            <h1>Our Mission</h1>
+            <p>At NeoTerra, we are dedicated to creating a sustainable future through innovative environmental solutions...</p>
+        </div>
+
+        <section class="team-section">
+            <h2>Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="assets/mona.jpg" alt="Jarubula Mona chandrika">
+                    <h2>Jarubula Mona chandrika</h2>
+                    <p>Chief Executive Officer</p>
+                    <p>Sets the company’s long-term vision and strategic goals.</p>
+                </div>
+                <div class="team-member">
+                    <img src="assets/navya.jpg" alt="Nadimpalli Navya Varma">
+                    <h2>Nadimpalli Navya Varma</h2>
+                    <p>Chief Operating Officer .</p>
+                    <p>Manages the entire waste collection, processing and recycling operations.</p>
+                </div>
+                <div class="team-member">
+                    <img src="assets/sanju.jpg" alt="Tadinada Sanjana">
+                    <h2>Tadinada Sanjana</h2>
+                    <p>Chief Marketing Officer</p>
+                    <p>Create comprehensive plans to promote the company’s products or services, aligning with business goals..</p>
+                </div>
+                <div class="team-member">
+                    <img src="assets/harika.jpg" alt ="Parlapalli Harika">
+                    <h2>Parlapalli Harika</h2>
+                    <p>Chief Sustainability Officer</p>
+                    <p>Creates long-term plans to reduce the company’s environmental impact.</p>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+    
+    <section class="other-ways">
+        <h2>Other Ways to Reach Us</h2>
+        <p>Phone: +91 9455769475</p>
+        <p>Email: contact@neoterra.com</p>
+        <p>Instagram: @NeoTerraGlobal</p>
+        <p>Address: Madhapur,Hyderabad,500032</p>
+        <p>Business Hours: Monday - Friday, 9:00 AM - 6:00 PM IST</p>
+    </section>
+</body>
+</html>

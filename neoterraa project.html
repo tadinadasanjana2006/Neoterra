@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoTerra - Turning Trash into Treasure</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #e6efe9 0%, #c5d5a7 100%);
+            overflow: hidden;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .brand-text {
+            display: none;
+        }
+
+        nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #27ae60;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #ffffff;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="brand-text">NeoTerra</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <img src="assets/logo2.jpg" alt="NeoTerra Logo" class="hero-logo">
+        <h1>Welcome to NeoTerra</h1>
+        <p>Turning trash into treasure</p>
+    </main>
+</body>
+</html>

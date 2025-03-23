@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - NeoTerra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #e6efe9 0%, #c5d5a7 100%);
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .brand-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #27ae60;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #27ae60;
+        }
+
+        .page-container {
+            display: flex;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .image-section {
+            flex: 1;
+            background: url('assets/logo4.jpg') center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(39, 174, 96, 0.2);
+        }
+
+        .brand-message {
+            position: relative;
+            color: white;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+        }
+
+        .brand-message h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .brand-message p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .login-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .login-container h1 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #27ae60;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+        }
+
+        .forgot-password {
+            color: #27ae60;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 1rem;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background: #219a52;
+        }
+
+        .user-type-select {
+            margin-bottom: 1.5rem;
+        }
+
+        .user-type-select select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #2c3e50;
+            background-color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="brand-text">NeoTerra</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <div class="page-container">
+        <section class="image-section">
+            <div class="image-overlay"></div>
+            <div class="brand-message">
+                <h2>Welcome to NeoTerra</h2>
+                <p>Join our mission to transform waste management and create a sustainable future for our planet.</p>
+            </div>
+        </section>
+        <section class="login-section">
+            <div class="login-container">
+        <h1>Welcome Back</h1>
+        <form id="loginForm">
+            <div class="user-type-select">
+                <select id="userType" required>
+                    <option value="" disabled selected>Select User Type</option>
+                    <option value="donor">Waste Donor</option>
+                    <option value="recycling">Recycling Unit</option>
+                    <option value="industry">Industry</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required placeholder="Enter your password">
+            </div>
+            <div class="remember-forgot">
+                <label class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <span>Remember me</span>
+                </label>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </main>
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const userType = document.getElementById('userType').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    if (email && password && userType) {
+        // Extract username from email (everything before @)
+        const userName = email.split('@')[0];
+        
+        // Store user data in localStorage
+        localStorage.setItem('userEmail', email);
+        localStorage.setItem('userName', userName);
+        localStorage.setItem('userType', userType);
+        localStorage.setItem('isLoggedIn', 'true');
+
+        // Update navigation for logged-in users
+        const nav = document.querySelector('nav');
+        nav.innerHTML = `
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="waste-management.html">Services</a>
+            <a href="recycled-products.html">Recycled Products</a>
+            <a href="profile.html">Profile</a>
+            <a href="#" id="logout">Logout</a>
+        `;
+
+        // Add logout functionality
+        document.getElementById('logout').addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.clear();
+            window.location.href = 'index.html';
+        });
+
+        // Redirect to waste-management page after successful login
+        window.location.href = 'waste-management.html';
+    } else {
+        alert('Please fill in all fields');
+    }
+});
+</script>
+</body>
+</html>
